@@ -29,3 +29,19 @@ const pipe = (f, ...fs) => (...as) => go(f(...as), ...fs);
 
 const fn = pipe(add1, add2, log);
 fn(0);
+
+/**
+ * curry
+ * 클로저를 이용한다. 함수를 인자로 받고 인자로 받은 함수를 실행할 함수를 리턴하여 코드 평가 시점을 정할 수 있다.
+ */
+
+const curry = (f) => (a, ...rest) =>
+  rest.length ? f(a, ...rest) : (...rest) => f(a, ...rest);
+
+const mult = curry((a, b) => a * b);
+
+const mult3 = mult(3);
+log("mult");
+go(5, mult3, log);
+go(3, mult3, log);
+go(7, mult3, log);
