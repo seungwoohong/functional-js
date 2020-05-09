@@ -1,4 +1,6 @@
-const { map, curry, reduce } = require("../lib/fx");
+const { map, curry, reduce, go } = require("../lib/fx");
+
+const log = console.log;
 
 const products = [
   { name: "반팔티", price: 10000, quantity: 1 },
